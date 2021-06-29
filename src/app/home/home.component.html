@@ -1,26 +1,39 @@
 <h1>Welcome User</h1>
 
 <div class="play-container">
-    <p>You've clicked <span (click)="countClick()">this</span> {{ clickCounter }} times</p>
+    <!-- the click here is how to bind events to the DOM -->
+    <p>You've clicked {{ clickCounter }} times
+        <br>
+        <button (click)="addClick()">Add Clicks</button> 
+        <br>
+        <button (click)="removeClick()">Take em away</button>
+    </p>
+    <!-- {{ this is value binding}} -->
 </div>
 
 <div class="play-container">
     <p>
         <input type="text" [(ngModel)]="name">
+        <!-- ngModel is an example of two way binding -->
+        <!-- it allows a property and event binding in one statement -->
+        <!-- stores the value in a variable (name) and we can use that whenever we require that value -->
         <br>
         <strong>You said: </strong> {{name}}
     </p>
 </div>
 
 <div class="play-container" [ngClass]=setClasses()>
+    
+<!-- ng-template is an element which appears in the DOM based on condition  -->
+    
     <ng-template 
-    [ngIf]="clickCounter > 4" 
-    [ngIfElse]="none">
-    <p> The Click counter <strong>is greater</strong> than 4</p>
-</ng-template>
+        [ngIf]="clickCounter > 4" 
+        [ngIfElse]="none">
+        <p> The Click counter <strong>is greater</strong> than 4</p>
+    </ng-template>
 
-<ng-template #none>
-    <p>The Click counter is <strong>not greater</strong> than 4</p>
-</ng-template>
+    <ng-template #none>
+        <p>The Click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
 
 </div>

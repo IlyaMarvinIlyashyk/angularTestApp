@@ -10,10 +10,10 @@ export class BreweriesComponent implements OnInit {
 
   brews: any;
 
-  constructor(private _http: HttpService) { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
-    this._http.getBeer().subscribe(data => {
+    this.http.getBeer().subscribe(data => {
       this.brews = data
       console.log(this.brews);
     });

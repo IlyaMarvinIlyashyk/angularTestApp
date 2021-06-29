@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  // typescript validation here
+
   clickCounter: number = 0;
 
   name: string = '';
@@ -16,12 +18,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  countClick() {
+  addClick() {
     this.clickCounter += 1
   }
 
+  removeClick() {
+    this.clickCounter -= 1
+  } 
+
   setClasses() {
-    let myClasses = {
+    const myClasses = {
       active: this.clickCounter > 4,
       notActive: this.clickCounter <= 4,
     }
